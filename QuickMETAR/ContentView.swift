@@ -9,9 +9,19 @@ import SwiftUI
 
 
 struct ContentView: View {
-    @State var data = WeatherData(station: "No airport yet" , flight_rules: "No flight rules yet")
     
-    let fontSize: CGFloat = 32
+    @State var data = WeatherData(
+        altimeter: Altimeter(value: 0.0),
+//        wind_direction: WindDirection(value: 0),
+        station: "KMCI" ,
+//        flight_rules: "",
+        dewpoint: DewPoint(value: 0),
+        temperature: Temperature(value: 0),
+        visibility: Visibility(value: 0),
+        clouds: [Clouds(repr: ""), Clouds(repr: "")]
+    )
+    
+    let fontSize: CGFloat = 22
     
     func getData() {
         let urlString = "https://avwx.rest/api/metar/KMCI?token=zc12yYWWj7T7z2FP6GVRKmbFtyhfrwL3-Mb_TLyfS98"
@@ -24,6 +34,7 @@ struct ContentView: View {
                         let decoder = JSONDecoder()
                         let decodedData = try decoder.decode(WeatherData.self, from: data)
                         self.data = decodedData
+                        
                     }catch {
                         print("Error! Something went wrong")
                     }
@@ -33,14 +44,31 @@ struct ContentView: View {
         
     }
     var body: some View {
-        VStack {
-            Button("Refresh data") {self.getData()}
-            Text("\(data.station)")
+        let altimeterRounded = String(format: "%.2f", data.altimeter.value)
+        //Wind, Clouds, Temperature, Dew Point, Altimiter
+        VStack(alignment: .leading) {
+//            HStack {
+//                Image(systemName: "magnifyingglass")
+//                TextField("Search...", text: $icao)
+//            }.textFieldStyle(RoundedBorderTextFieldStyle())
+            Text("Station: \(data.station)")
                 .font(.system(size: fontSize))
-            Text("\(data.flight_rules)")
+//            Text("Flight Rules: \(data.flight_rules)")
+//                .font(.system(size: fontSize))
+            Text("Visibility: \(data.visibility.value) sm")
+                .font(.system(size: fontSize))
+            Text("Clouds: \(data.clouds[0].repr) , \(data.clouds[1].repr)")
+                .font(.system(size: fontSize))
+            Text("Temperature: \(data.temperature.value) &deg;C")
+                .font(.system(size: fontSize))
+            Text("Dew Point: \(data.dewpoint.value) &deg;C")
+                .font(.system(size: fontSize))
+            Text("Altimeter: \(altimeterRounded)inHg")
                 .font(.system(size: fontSize))
             
-        }
+            
+            Button("Refresh data") {self.getData()}
+        }.padding()
         
     }
 }
