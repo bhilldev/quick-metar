@@ -43,6 +43,7 @@ struct ContentView: View {
         }.resume()
         
     }
+   
     var body: some View {
         let altimeterRounded = String(format: "%.2f", data.altimeter.value)
         //Wind, Clouds, Temperature, Dew Point, Altimiter
@@ -70,5 +71,11 @@ struct ContentView: View {
             Button("Refresh data") {self.getData()}
         }.padding()
         
+    
+    }
+}
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
 }
