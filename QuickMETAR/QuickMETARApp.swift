@@ -11,7 +11,7 @@ import SwiftUI
 struct QuickMETARApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(Icao: "KLWC", cloudString: "")
+            ContentView(Icao: "", cloudString: "")
         }
     }
 }
