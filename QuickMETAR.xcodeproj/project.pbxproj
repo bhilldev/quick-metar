@@ -12,6 +12,9 @@
 		B73079C327C56A1500A4F510 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B73079C227C56A1500A4F510 /* Assets.xcassets */; };
 		B73079C627C56A1500A4F510 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B73079C527C56A1500A4F510 /* Preview Assets.xcassets */; };
 		B73079CE27C696AA00A4F510 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73079CD27C696AA00A4F510 /* WeatherData.swift */; };
+		B7A92B0F27D68E5D005A2CD4 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A92B0E27D68E5D005A2CD4 /* SearchBar.swift */; };
+		B7A92B1127D6912E005A2CD4 /* MetarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A92B1027D6912E005A2CD4 /* MetarView.swift */; };
+		B7A92B1327D69200005A2CD4 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A92B1227D69200005A2CD4 /* API.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +24,9 @@
 		B73079C227C56A1500A4F510 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B73079C527C56A1500A4F510 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B73079CD27C696AA00A4F510 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
+		B7A92B0E27D68E5D005A2CD4 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		B7A92B1027D6912E005A2CD4 /* MetarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetarView.swift; sourceTree = "<group>"; };
+		B7A92B1227D69200005A2CD4 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +59,7 @@
 		B73079BD27C56A1400A4F510 /* QuickMETAR */ = {
 			isa = PBXGroup;
 			children = (
+				B7A92B0D27D68DF5005A2CD4 /* View */,
 				B73079CC27C6968400A4F510 /* Model */,
 				B73079BE27C56A1400A4F510 /* QuickMETARApp.swift */,
 				B73079C027C56A1400A4F510 /* ContentView.swift */,
@@ -74,8 +81,18 @@
 			isa = PBXGroup;
 			children = (
 				B73079CD27C696AA00A4F510 /* WeatherData.swift */,
+				B7A92B1227D69200005A2CD4 /* API.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B7A92B0D27D68DF5005A2CD4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B7A92B0E27D68E5D005A2CD4 /* SearchBar.swift */,
+				B7A92B1027D6912E005A2CD4 /* MetarView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,7 +165,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7A92B1327D69200005A2CD4 /* API.swift in Sources */,
 				B73079C127C56A1400A4F510 /* ContentView.swift in Sources */,
+				B7A92B1127D6912E005A2CD4 /* MetarView.swift in Sources */,
+				B7A92B0F27D68E5D005A2CD4 /* SearchBar.swift in Sources */,
 				B73079CE27C696AA00A4F510 /* WeatherData.swift in Sources */,
 				B73079BF27C56A1400A4F510 /* QuickMETARApp.swift in Sources */,
 			);

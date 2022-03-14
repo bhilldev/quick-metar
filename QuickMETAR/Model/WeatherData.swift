@@ -7,7 +7,7 @@
 
 import Foundation
 //Wind x, Clouds x, Temperature x, Dew Point, Altimiter x
-struct WeatherData: Decodable {
+struct WeatherData: Codable {
     var altimeter: Altimeter
 //    var wind_direction: WindDirection
     var station: String
@@ -22,20 +22,20 @@ struct Altimeter: Codable {
     var value: Double
 }
 
-struct WindDirection: Decodable {
+struct WindDirection: Codable {
     var value: Int
 }
 
-struct Temperature: Decodable {
+struct Temperature: Codable {
     var value: Int
 }
 
-struct Clouds: Decodable  {
+struct Clouds: Codable  {
     var repr: String
 }
-struct DewPoint: Decodable {
+struct DewPoint: Codable {
     var value: Int
 }
-struct Visibility: Decodable {
+struct Visibility: Codable {
     var value: Int
 }

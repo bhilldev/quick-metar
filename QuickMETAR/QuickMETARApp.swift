@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct QuickMETARApp: App {
+    
     var body: some Scene {
         WindowGroup {
-            ContentView(Icao: "", cloudString: "")
+            ContentView(icao: "")
         }
     }
 }
