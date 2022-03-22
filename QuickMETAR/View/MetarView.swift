@@ -18,7 +18,10 @@ struct MetarView: View {
         let altimeterRounded = String(format: "%.2f", viewModel.data.altimeter.value)
         
         VStack(alignment: .leading){
+            
             Text("Station: \(icao)")
+                .font(.system(size: fontSize))
+            Text("Wind: \(viewModel.data.wind_direction.repr)&deg; at \(viewModel.data.wind_speed.repr) knots")
                 .font(.system(size: fontSize))
             Text("Visibility: \(viewModel.data.visibility.value) sm")
                 .font(.system(size: fontSize))

@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct SearchBar: View{
-
+    
     @Binding var icao: String
+    @Binding var showMetar: Bool
+    
     @ObservedObject var viewModel: API
     
     var body: some View {
@@ -17,6 +19,10 @@ struct SearchBar: View{
             HStack {
                 Button(action: {
                     viewModel.getData(icao: icao)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                        showMetar = true
+                    }
+                    
                 }, label: {
                     Image(systemName: "magnifyingglass")
                 }).padding(2)

@@ -16,7 +16,9 @@ class API : ObservableObject {
         dewpoint: DewPoint(value: 0),
         temperature: Temperature(value: 0),
         visibility: Visibility(value: 0),
-        clouds: [Clouds(repr: "")]
+        clouds: [Clouds(repr: "")],
+        wind_speed: WindSpeed(repr: ""),
+        wind_direction: WindDirection(repr: "")
     )
     
     func getData(icao: String) {

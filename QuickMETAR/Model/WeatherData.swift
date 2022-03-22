@@ -16,6 +16,8 @@ struct WeatherData: Codable {
     var temperature: Temperature
     var visibility: Visibility
     var clouds: [Clouds]
+    var wind_speed: WindSpeed
+    var wind_direction: WindDirection
 }
 
 struct Altimeter: Codable {
@@ -23,7 +25,11 @@ struct Altimeter: Codable {
 }
 
 struct WindDirection: Codable {
-    var value: Int
+    var repr: String
+}
+
+struct WindSpeed: Codable {
+    var repr: String
 }
 
 struct Temperature: Codable {
