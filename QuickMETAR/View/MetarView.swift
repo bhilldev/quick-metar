@@ -16,13 +16,12 @@ struct MetarView: View {
     var body: some View {
         
         let altimeterRounded = String(format: "%.2f", viewModel.data.altimeter.value)
-        
+        let windDirectionString = String(format: "%.0f", viewModel.data.wind_direction.value)
         VStack(alignment: .leading){
             
             Text("Station: \(icao)")
                 .font(.system(size: fontSize))
-            Text("Wind: \(viewModel.data.wind_direction.repr)&deg; at \(viewModel.data.wind_speed.repr) knots")
-                .font(.system(size: fontSize))
+            
             Text("Visibility: \(viewModel.data.visibility.value) sm")
                 .font(.system(size: fontSize))
             HStack {
@@ -49,8 +48,20 @@ struct MetarView: View {
                 .font(.system(size: fontSize))
             Text("Altimeter: \(altimeterRounded)inHg")
                 .font(.system(size: fontSize))
+            Image(systemName: "arrow.up")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 100, height: 100, alignment: .center)
+                .rotationEffect(.degrees(viewModel.data.wind_direction.value - 180))
+            Text("Wind: \(windDirectionString)&deg; at \(viewModel.data.wind_speed.repr) knots")
+                .font(.system(size: fontSize))
             Spacer()
+            
         }.padding()
     }
-    
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView(icao: "", showMetar: false)
+        }
+    }
 }

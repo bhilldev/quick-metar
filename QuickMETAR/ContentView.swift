@@ -32,7 +32,7 @@ struct ContentView: View {
                         viewModel.data.visibility.value = 0
                         viewModel.data.clouds.removeAll()
                         viewModel.data.wind_speed.repr = ""
-                        viewModel.data.wind_direction.repr = ""
+                        viewModel.data.wind_direction.value = 0
                         
                     }
                 if showMetar {
@@ -41,17 +41,19 @@ struct ContentView: View {
                         .frame(height: geometry.size.height * 0.90)
                     
                 }
+               
                 
             }
             .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.117, green: 0.402, blue: 0.551)/*@END_MENU_TOKEN@*/)
             .foregroundColor(Color(red: 238 / 255, green: 238 / 255, blue: 238 / 255))
+            
         }
     }
-    //    struct ContentView_Previews: PreviewProvider {
-    //        static var previews: some View {
-    //            ContentView(icao: "", metarViewLoaded: false)
-    //        }
-    //    }
+        struct ContentView_Previews: PreviewProvider {
+            static var previews: some View {
+                ContentView(icao: "", showMetar: false)
+            }
+        }
 }
 
 

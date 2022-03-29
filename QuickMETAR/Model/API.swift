@@ -18,7 +18,7 @@ class API : ObservableObject {
         visibility: Visibility(value: 0),
         clouds: [Clouds(repr: "")],
         wind_speed: WindSpeed(repr: ""),
-        wind_direction: WindDirection(repr: "")
+        wind_direction: WindDirection(value: 0)
     )
     
     func getData(icao: String) {
