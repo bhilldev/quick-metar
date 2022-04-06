@@ -12,7 +12,7 @@ struct MetarView: View {
     let fontSize: CGFloat = 22
     @Binding var icao: String
     @ObservedObject var viewModel: API
-
+    
     var body: some View {
         
         let altimeterRounded = String(format: "%.2f", viewModel.data.altimeter.value)
@@ -29,7 +29,7 @@ struct MetarView: View {
                 if viewModel.data.clouds.count == 0 {
                     Text("Clear Skies")
                         .font(.system(size: fontSize))
-                //If one or more cloud layers are present
+                    //If one or more cloud layers are present
                 } else {
                     ForEach(0..<viewModel.data.clouds.count, id: \.self) { i in
                         if i == 0 {
@@ -48,13 +48,19 @@ struct MetarView: View {
                 .font(.system(size: fontSize))
             Text("Altimeter: \(altimeterRounded)inHg")
                 .font(.system(size: fontSize))
-            Image(systemName: "arrow.up")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 100, height: 100, alignment: .center)
-                .rotationEffect(.degrees(viewModel.data.wind_direction.value - 180))
-            Text("Wind: \(windDirectionString)&deg; at \(viewModel.data.wind_speed.repr) knots")
-                .font(.system(size: fontSize))
+            
+            if windDirectionString != "0" {
+                Image(systemName: "arrow.up")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 100, height: 100, alignment: .center)
+                    .rotationEffect(.degrees(viewModel.data.wind_direction.value - 180))
+                Text("Wind: \(windDirectionString)&deg; at \(viewModel.data.wind_speed.repr) knots")
+                    .font(.system(size: fontSize))
+            } else {
+                Text("Wind: Calm")
+                    .font(.system(size: fontSize))
+            }
             Spacer()
             
         }.padding()
