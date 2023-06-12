@@ -71,7 +71,7 @@ struct MetarView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 100, height: 100, alignment: .center)
-                    .rotationEffect(.degrees(viewModel.data.wind_direction.value - 180))
+                    .rotationEffect(.degrees(viewModel.data.wind_direction.value))
                 Text("Wind: \(viewModel.data.wind_direction.value, specifier: "%.0f")&deg; at \(viewModel.data.wind_speed.repr) knots")
                     .font(.system(size: fontSize))
             } else {
