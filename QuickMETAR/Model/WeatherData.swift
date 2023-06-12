@@ -25,11 +25,13 @@ struct Altimeter: Codable {
 }
 
 struct WindDirection: Codable {
-    var value: Double
+    var repr: String
+    var value: Double?
 }
 
 struct WindSpeed: Codable {
     var repr: String
+    var value: Double
 }
 
 struct Temperature: Codable {
